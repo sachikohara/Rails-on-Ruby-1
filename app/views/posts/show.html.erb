@@ -1,0 +1,29 @@
+<%= render "shared/partial" %>
+
+<%= link_to "一覧に戻る", :posts %>
+
+<%= @post.title %>
+<%= form_with model: @post do |f| %>
+  <table>
+    <tr>
+      <th>開始日</th>
+      <td><%= l @post.start_date || Date.today %></td>
+    </tr>
+
+    <tr>
+      <th>終了日</th>
+      <td><%= l @post.end_date || Date.today %></td>
+    </tr>
+
+    <tr>
+      <th>終日</th>
+      <td><%= @post.is_all_day = 'true' ? '◯': '' %></td>
+    </tr>
+
+    <tr>
+      <th>スケジュールメモ</th>
+      <td><%= @post.memo %></td>
+    </tr>
+  </table>
+
+<% end %>
